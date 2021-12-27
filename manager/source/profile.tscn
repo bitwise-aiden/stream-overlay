@@ -1,0 +1,158 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://source/main_theme.tres" type="Theme" id=2]
+[ext_resource path="res://source/commands.gd" type="Script" id=3]
+
+[node name="profile" type="Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -8.0
+margin_bottom = -60.0
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="content" type="HSplitContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -40.0
+margin_bottom = -40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="information" type="VBoxContainer" parent="content"]
+margin_right = 420.0
+margin_bottom = 660.0
+rect_min_size = Vector2( 420, 660 )
+
+[node name="title" type="Label" parent="content/information"]
+margin_right = 420.0
+margin_bottom = 22.0
+text = "title"
+
+[node name="title_content" type="LineEdit" parent="content/information"]
+margin_top = 26.0
+margin_right = 420.0
+margin_bottom = 56.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="notification" type="Label" parent="content/information"]
+margin_top = 60.0
+margin_right = 420.0
+margin_bottom = 82.0
+text = "notificaiton"
+
+[node name="notification_content" type="LineEdit" parent="content/information"]
+margin_top = 86.0
+margin_right = 420.0
+margin_bottom = 116.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="category" type="Label" parent="content/information"]
+margin_top = 120.0
+margin_right = 420.0
+margin_bottom = 142.0
+text = "category"
+
+[node name="category_content" type="LineEdit" parent="content/information"]
+margin_top = 146.0
+margin_right = 420.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="tags" type="Label" parent="content/information"]
+margin_top = 180.0
+margin_right = 420.0
+margin_bottom = 202.0
+text = "category"
+
+[node name="tag_search" type="LineEdit" parent="content/information"]
+margin_top = 206.0
+margin_right = 420.0
+margin_bottom = 236.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="tag_content" type="PanelContainer" parent="content/information"]
+margin_top = 240.0
+margin_right = 420.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="today" type="Label" parent="content/information"]
+margin_top = 274.0
+margin_right = 420.0
+margin_bottom = 296.0
+text = "!today"
+
+[node name="today_content" type="LineEdit" parent="content/information"]
+margin_top = 300.0
+margin_right = 420.0
+margin_bottom = 330.0
+rect_min_size = Vector2( 0, 30 )
+
+[node name="done" type="Button" parent="content/information"]
+margin_top = 334.0
+margin_right = 420.0
+margin_bottom = 356.0
+text = "done"
+
+[node name="settings" type="TabContainer" parent="content"]
+margin_left = 428.0
+margin_right = 1228.0
+margin_bottom = 660.0
+rect_min_size = Vector2( 800, 660 )
+tab_align = 0
+
+[node name="commands" type="Tabs" parent="content/settings"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
+script = ExtResource( 3 )
+
+[node name="container" type="VBoxContainer" parent="content/settings/commands"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="new" type="Button" parent="content/settings/commands/container"]
+margin_left = 752.0
+margin_right = 790.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 38, 22 )
+rect_pivot_offset = Vector2( 38, 0 )
+size_flags_horizontal = 8
+text = "new"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="scroll" type="ScrollContainer" parent="content/settings/commands/container"]
+margin_top = 26.0
+margin_right = 790.0
+margin_bottom = 626.0
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="commands" type="VBoxContainer" parent="content/settings/commands/container/scroll"]
+margin_right = 790.0
+size_flags_horizontal = 3
+
+[node name="points" type="Tabs" parent="content/settings"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 29.0
+margin_right = -5.0
+margin_bottom = -5.0
