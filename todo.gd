@@ -29,6 +29,27 @@ Twitch Manager:
 	- Responsible for setting up a chat client
 		- Takes and manages commands
 		- Forward any chat messages to the listening services
+	- UI
+		- Status of plugin|ngrok|overlay
+		- Profiles tabs to switch between different profiles
+			- stream info for the day
+				- notification
+				- title
+				- tags
+				- !today
+			- command setup
+				- list of commands
+					- title
+					- is admin
+					- is streamer
+					- type (static|code execution)
+					- tags
+			- point redemption setup
+				- list of redemptions (Look at API for creating redemptions)
+					- title 
+					- description
+					- points
+					- picture (scale as required)
 
 Godot Plugin:
 	- Responsible for responding to everything related to Godot
@@ -57,3 +78,6 @@ Stream overlay:
 	- Responsible for showing status icons of things
 		- like ridiculous typing
 	- Other fun things I have yet to think about :D
+	- React to bits|butts
+		- bright flashy things to stimulate happy glands
+
