@@ -10,8 +10,8 @@ class Setting:
 	# Lifecycle methods
 
 	func _init(path, value) -> void:
-		path = path
-		value = value
+		self.path = path
+		self.value = value
 
 
 	# Private methods
@@ -84,7 +84,7 @@ func get_setting(name, default = null):
 
 
 func save_settings() -> void:
-	FileManager.save_json(SETTINGS_PATH, __settings)
+	FileManager.save_json(__SETTINGS_PATH, __settings)
 
 
 func set_setting(name: String, value, save: bool = false) -> void:
