@@ -1,0 +1,92 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://source/components/command.tscn" type="PackedScene" id=2]
+
+[node name="tab_command" type="Tabs"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container_header" type="HBoxContainer" parent="container"]
+margin_right = 1280.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+alignment = 2
+
+[node name="label_command" type="Label" parent="container/container_header"]
+margin_right = 77.0
+margin_bottom = 22.0
+text = "Command:"
+
+[node name="input_command" type="LineEdit" parent="container/container_header"]
+margin_left = 81.0
+margin_right = 1123.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+placeholder_text = "!command"
+
+[node name="select_access" type="OptionButton" parent="container/container_header"]
+margin_left = 1127.0
+margin_right = 1227.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
+text = "all"
+items = [ "all", null, false, 0, null, "moderator", null, false, 1, null, "streamer", null, false, 2, null ]
+selected = 0
+
+[node name="button_add" type="Button" parent="container/container_header"]
+margin_left = 1231.0
+margin_right = 1280.0
+margin_bottom = 22.0
+text = "Add..."
+
+[node name="panel_content" type="Panel" parent="container"]
+margin_top = 26.0
+margin_right = 1280.0
+margin_bottom = 720.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="container_content" type="ScrollContainer" parent="container/panel_content"]
+margin_top = 4.0
+margin_right = 1280.0
+margin_bottom = 694.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="container" type="VBoxContainer" parent="container/panel_content/container_content"]
+margin_right = 1280.0
+margin_bottom = 690.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="command" parent="container/panel_content/container_content/container" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_right = 1280.0
+
+[node name="command2" parent="container/panel_content/container_content/container" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_top = 4.0
+margin_right = 1280.0
+margin_bottom = 4.0
+
+[node name="command3" parent="container/panel_content/container_content/container" instance=ExtResource( 2 )]
+anchor_right = 0.0
+margin_top = 8.0
+margin_right = 1280.0
+margin_bottom = 8.0
