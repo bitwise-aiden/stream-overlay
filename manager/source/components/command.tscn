@@ -1,21 +1,85 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=1]
+[ext_resource path="res://assets/icons/remove.svg" type="Texture" id=2]
+[ext_resource path="res://assets/themes/panel_command_theme.tres" type="StyleBox" id=3]
+[ext_resource path="res://assets/icons/collapse.svg" type="Texture" id=4]
 
-[node name="command" type="Panel"]
+[node name="command" type="VBoxContainer"]
 anchor_right = 1.0
-margin_bottom = 30.0
-rect_min_size = Vector2( 0, 30 )
+anchor_bottom = 1.0
+margin_right = -20.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="label_command" type="Label" parent="."]
-margin_right = 40.0
-margin_bottom = 14.0
-text = "!hello"
+[node name="_" type="HBoxContainer" parent="."]
+margin_right = 1260.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="container_command" type="PanelContainer" parent="_"]
+margin_right = 1240.0
+margin_bottom = 30.0
+size_flags_horizontal = 3
+custom_styles/panel = ExtResource( 3 )
+
+[node name="_" type="HBoxContainer" parent="_/container_command"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 1234.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="button_collapse" type="TextureButton" parent="_/container_command/_"]
+margin_top = 3.0
+margin_right = 16.0
+margin_bottom = 19.0
+rect_pivot_offset = Vector2( 8, 8 )
+size_flags_horizontal = 0
+size_flags_vertical = 4
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 4 )
+texture_focused = ExtResource( 4 )
+
+[node name="label_command" type="Label" parent="_/container_command/_"]
+margin_left = 20.0
+margin_right = 57.0
+margin_bottom = 22.0
+text = "!test"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="option_access" type="OptionButton" parent="_/container_command/_"]
+margin_left = 61.0
+margin_right = 161.0
+margin_bottom = 22.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_vertical = 4
+text = "All"
+align = 1
+items = [ "All", null, false, 0, null, "VIP", null, false, 1, null, "Moderator", null, false, 2, null, "Streamer", null, false, 3, null ]
+selected = 0
+
+[node name="button_delete" type="TextureButton" parent="_"]
+margin_left = 1244.0
+margin_top = 7.0
+margin_right = 1260.0
+margin_bottom = 23.0
+size_flags_vertical = 4
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 2 )
+texture_hover = ExtResource( 2 )
+texture_disabled = ExtResource( 2 )
+texture_focused = ExtResource( 2 )
