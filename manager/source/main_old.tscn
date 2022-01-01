@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://source/main.gd" type="Script" id=1]
+[ext_resource path="res://source/main_old.gd" type="Script" id=1]
 [ext_resource path="res://source/profile.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=3]
 
