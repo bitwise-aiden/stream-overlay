@@ -22,7 +22,7 @@ func _ready() -> void:
 # Private methods
 
 func __new_command() -> void:
-	var instance: Command = __COMMAND_INSTANCE.instance()
+	var instance: CommandOld = __COMMAND_INSTANCE.instance()
 	instance.connect("deleted", __commands, "remove_child", [instance])
 
 	__commands.add_child(instance)

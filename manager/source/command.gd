@@ -1,4 +1,4 @@
-class_name Command extends Panel
+class_name CommandOld extends Panel
 
 
 # Signals
