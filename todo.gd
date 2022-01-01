@@ -50,6 +50,22 @@ Twitch Manager:
 					- description
 					- points
 					- picture (scale as required)
+			
+	- Commands 
+		- A set of actions that can be run as a sequence or randomly picked
+			- Actions can be:
+				- static responses
+				- code snippets (scoped to a signle method)
+				- event signals for listeners
+			- Actions can have different access types: 
+				- All
+				- VIP
+				- Moderator
+				- Streamer
+			- Actions can have optional user created tags: 
+				- Tags will be used with `!command <tag>` to filter responses
+			- Actions can specify number of arguments to parse 
+				- Arguments will be treated as space separated, no fancy handling
 
 Godot Plugin:
 	- Responsible for responding to everything related to Godot
