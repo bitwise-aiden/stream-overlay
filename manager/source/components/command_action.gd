@@ -14,7 +14,7 @@ onready var __input_code: TextEdit = $popup_code/input_code
 onready var __input_response: LineEdit = $container_action/input_response
 onready var __input_signal: LineEdit = $container_action/input_signal
 onready var __option_type: OptionButton = $container_action/option_type
-onready var __popup_code: Popup = $popup_code # TODO: Swap - drusiform
+onready var __popup_code: PopupDialog = $popup_code # TODO: Swap - drusiform
 
 onready var __type_inputs: Array = [
 	__input_response,
