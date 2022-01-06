@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/icons/remove.svg" type="Texture" id=2]
 [ext_resource path="res://source/components/command_action.gd" type="Script" id=3]
+[ext_resource path="res://source/components/popup_code.gd" type="Script" id=4]
 
 [node name="command_action" type="VBoxContainer"]
 anchor_right = 1.0
@@ -75,6 +76,7 @@ margin_right = 515.0
 margin_bottom = 302.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource( 4 )
 
 [node name="input_code" type="TextEdit" parent="popup_code"]
 margin_left = 10.0
