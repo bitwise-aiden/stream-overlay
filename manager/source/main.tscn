@@ -34,12 +34,12 @@ __meta__ = {
 
 [node name="container_menu" type="HBoxContainer" parent="."]
 margin_right = 1270.0
-margin_bottom = 22.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
 
 [node name="file" type="MenuButton" parent="container_menu"]
-margin_right = 35.0
-margin_bottom = 22.0
+margin_right = 44.0
+margin_bottom = 26.0
 focus_mode = 2
 shortcut = SubResource( 2 )
 text = "File"
@@ -49,30 +49,30 @@ __meta__ = {
 }
 
 [node name="profile" type="MenuButton" parent="container_menu"]
-margin_left = 39.0
-margin_right = 92.0
-margin_bottom = 22.0
+margin_left = 48.0
+margin_right = 116.0
+margin_bottom = 26.0
 custom_constants/hseparation = 2
 shortcut = SubResource( 4 )
 text = "Profile"
 items = [ "New", null, 0, false, false, 0, 0, null, "", false, "Duplicate", null, 0, false, false, 1, 0, null, "", false, "Rename", null, 0, false, false, 2, 0, null, "", false, "Remove", null, 0, false, false, 3, 0, null, "", false, "Import", null, 0, false, false, 4, 0, null, "", false, "Export", null, 0, false, false, 5, 0, null, "", false, "", null, 0, false, false, 6, 0, null, "", true, "Default", null, 0, false, false, 7, 0, null, "", false ]
 
 [node name="tabs_content" type="TabContainer" parent="."]
-margin_top = 26.0
+margin_top = 30.0
 margin_right = 1270.0
-margin_bottom = 674.0
+margin_bottom = 670.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 tab_align = 0
 
 [node name="Command" parent="tabs_content" instance=ExtResource( 4 )]
 margin_left = 5.0
-margin_top = 29.0
+margin_top = 33.0
 margin_right = -5.0
 margin_bottom = -5.0
 
 [node name="panel_footer" type="PanelContainer" parent="."]
-margin_top = 678.0
+margin_top = 674.0
 margin_right = 1270.0
 margin_bottom = 710.0
 custom_styles/panel = ExtResource( 1 )
@@ -81,27 +81,27 @@ custom_styles/panel = ExtResource( 1 )
 margin_left = 5.0
 margin_top = 5.0
 margin_right = 1265.0
-margin_bottom = 27.0
+margin_bottom = 31.0
 size_flags_horizontal = 3
 custom_constants/separation = 10
 alignment = 2
 
 [node name="status_ngrok" parent="panel_footer/_" instance=ExtResource( 2 )]
-margin_left = 1036.0
-margin_right = 1104.0
-margin_bottom = 22.0
+margin_left = 1000.0
+margin_right = 1080.0
+margin_bottom = 26.0
 text = "ngrok"
 
 [node name="status_overlay" parent="panel_footer/_" instance=ExtResource( 2 )]
-margin_left = 1114.0
-margin_right = 1182.0
-margin_bottom = 22.0
+margin_left = 1090.0
+margin_right = 1170.0
+margin_bottom = 26.0
 state = 1
 text = "overlay"
 
 [node name="status_plugin" parent="panel_footer/_" instance=ExtResource( 2 )]
-margin_left = 1192.0
+margin_left = 1180.0
 margin_right = 1260.0
-margin_bottom = 22.0
+margin_bottom = 26.0
 state = 2
 text = "plugin"

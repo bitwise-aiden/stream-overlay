@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=1]
 [ext_resource path="res://assets/icons/remove.svg" type="Texture" id=2]
 [ext_resource path="res://source/components/command_action.gd" type="Script" id=3]
-[ext_resource path="res://source/components/popup_code.gd" type="Script" id=4]
+[ext_resource path="res://source/components/input_code.gd" type="Script" id=4]
+[ext_resource path="res://assets/themes/input_code_theme.tres" type="StyleBox" id=5]
 
 [node name="command_action" type="VBoxContainer"]
 anchor_right = 1.0
@@ -17,7 +18,7 @@ __meta__ = {
 
 [node name="container_action" type="HBoxContainer" parent="."]
 margin_right = 1280.0
-margin_bottom = 22.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
@@ -25,7 +26,7 @@ __meta__ = {
 
 [node name="option_type" type="OptionButton" parent="container_action"]
 margin_right = 100.0
-margin_bottom = 22.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 100, 0 )
 text = "Static"
 align = 1
@@ -35,7 +36,7 @@ selected = 0
 [node name="input_response" type="LineEdit" parent="container_action"]
 margin_left = 104.0
 margin_right = 1260.0
-margin_bottom = 22.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
 placeholder_text = "Response"
 caret_blink = true
@@ -61,9 +62,9 @@ text = "Show code..."
 
 [node name="button_delete" type="TextureButton" parent="container_action"]
 margin_left = 1264.0
-margin_top = 3.0
+margin_top = 5.0
 margin_right = 1280.0
-margin_bottom = 19.0
+margin_bottom = 21.0
 size_flags_vertical = 4
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 2 )
@@ -76,13 +77,53 @@ margin_right = 515.0
 margin_bottom = 302.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource( 4 )
 
 [node name="input_code" type="TextEdit" parent="popup_code"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 505.0
 margin_bottom = 292.0
+custom_colors/member_variable_color = Color( 0.737255, 0.878431, 1, 1 )
+custom_colors/code_folding_color = Color( 1, 1, 1, 0.701961 )
+custom_colors/function_color = Color( 0.341176, 0.701961, 1, 1 )
+custom_colors/safe_line_number_color = Color( 0.811765, 0.972549, 0.862745, 0.74902 )
+custom_colors/symbol_color = Color( 0.670588, 0.784314, 1, 1 )
+custom_colors/caret_background_color = Color( 0, 0, 0, 1 )
+custom_colors/bookmark_color = Color( 0.0784314, 0.490196, 0.980392, 1 )
+custom_colors/selection_color = Color( 0.411765, 0.611765, 0.909804, 0.34902 )
+custom_colors/caret_color = Color( 1, 1, 1, 1 )
+custom_colors/breakpoint_color = Color( 1, 0.470588, 0.419608, 1 )
+custom_colors/font_color_selected = Color( 0.121569, 0.121569, 0.227451, 1 )
+custom_colors/font_color = Color( 0.81, 0.81, 0.86, 1 )
+custom_colors/line_number_color = Color( 0.811765, 0.811765, 0.858824, 0.501961 )
+custom_colors/completion_font_color = Color( 0.81, 0.81, 0.86, 1 )
+custom_colors/completion_scroll_color = Color( 1, 1, 1, 0.7 )
+custom_colors/number_color = Color( 0.63, 1, 0.88, 1 )
+custom_colors/completion_background_color = Color( 0.25, 0.25, 0.45, 1 )
+custom_colors/brace_mismatch_color = Color( 1, 0.47, 0.42, 1 )
+custom_colors/current_line_color = Color( 1, 1, 1, 0.07 )
+custom_colors/completion_selected_color = Color( 1, 1, 1, 0.07 )
+custom_colors/executing_line_color = Color( 0.2, 0.8, 0.2, 0.4 )
+custom_colors/mark_color = Color( 1, 0.47, 0.42, 0.3 )
+custom_colors/word_highlighted_color = Color( 1, 1, 1, 0.7 )
+custom_colors/completion_existing_color = Color( 1, 1, 1, 0.14 )
+custom_styles/read_only = ExtResource( 5 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
+custom_styles/completion = ExtResource( 5 )
+highlight_current_line = true
+syntax_highlighting = true
+show_line_numbers = true
+draw_tabs = true
+draw_spaces = true
+breakpoint_gutter = true
+fold_gutter = true
+highlight_all_occurrences = true
+context_menu_enabled = false
+hiding_enabled = true
+caret_blink = true
+caret_blink_speed = 0.5
+script = ExtResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
