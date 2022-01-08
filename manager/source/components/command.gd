@@ -10,12 +10,6 @@ signal deleted()
 
 const __COMMAND_ACTION = preload("res://source/components/command_action.tscn")
 
-
-# Public variables
-
-var command: String = "" setget __command_set, __command_get
-
-
 # Private variables
 
 onready var __button_add: TextureButton = $container_command/container_actions/button_add
@@ -27,28 +21,74 @@ onready var __container_command_actions:VBoxContainer = $container_command_actio
 onready var __input_arguments: SpinBox = $container_command/container_command/_/input_arguments
 onready var __label_command: Label = $container_command/container_command/_/label_command
 onready var __option_access: OptionButton = $container_command/container_command/_/option_access
-onready var __option_type: OptionButton = $container_command/container_command/_/option_type
+onready var __option_execution: OptionButton = $container_command/container_command/_/option_execution
+
+var __data: DataCommand = null
 
 
 # Lifecycle methods
 
 func _ready() -> void:
-	self.command = command
-
 	__button_add.connect("button_up", self, "__button_add_pressed")
 	__button_collapse.connect("button_up", self, "__button_collapse_pressed")
 	__button_delete.connect("button_up", self, "__button_delete_pressed")
 
 
+# Public methods
+
+func set_data(data: DataCommand) -> void:
+	__data = data
+
+	# Nuts - c_onvulse
+	__check_enabled.toggle_mode = data.enabled
+	__input_arguments.value = data.argument_count
+	__label_command.text = data.text
+	# I must go take a sh*t, i'll be back - c_onvulse
+	__option_access.selected = data.access_type
+	# all this censorship is just like that book i never read, 1975 by jordan orwelp. f*ck! - TheYagich
+	__option_execution.selected = data.execution_type
+
+	# TODO: Add tags
+
+	for action in data.actions:
+		__action_add(action, true)
+
+
 # Private methods
+
+func __action_add(action: DataCommandAction, loading: bool = false) -> void:
+	var instance: CommandAction = __COMMAND_ACTION.instance()
+	instance.connect("deleted", self, "__action_remove", [instance])
+
+	__container_command_actions.add_child(instance)
+
+	if !loading:
+		__data.actions.append(action)
+
+	yield(get_tree(), "idle_frame")
+
+	instance.set_data(action)
+
+
+func __action_remove(action: CommandAction) -> void:
+	# TODO: Command buffer
+
+	__container_command_actions.remove_child(action)
+
+	var index: int = __data.actions.find(action.__data)
+	if index != -1:
+		__data.actions.remove(index)
+
+	if __container_command_actions.get_child_count() == 0:
+		__button_delete.visible = true
+
+	action.queue_free()
+
 
 func __button_add_pressed() -> void:
 	# TODO: Command buffer
 
-	var instance: CommandAction = __COMMAND_ACTION.instance()
-	instance.connect("deleted", self, "__callback_command_action_deleted", [instance])
-
-	__container_command_actions.add_child(instance)
+	__action_add(DataCommandAction.new())
 
 	__button_delete.visible = false
 
@@ -68,27 +108,4 @@ func __button_delete_pressed() -> void:
 
 	emit_signal("deleted")
 
-	queue_free()
-
-
-func __callback_command_action_deleted(command_action: CommandAction) -> void:
-	# TODO: Command buffer
-
-	__container_command_actions.remove_child(command_action)
-
-	if __container_command_actions.get_child_count() == 0:
-		__button_delete.visible = true
-
-	command_action.queue_free()
-
-
-func __command_get() -> String:
-	return command
 # MY errors are pretty badass - Lil'Oni
-
-
-func __command_set(value: String) -> void:
-	command = value
-
-	if __label_command:
-		__label_command.text = value

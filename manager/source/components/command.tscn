@@ -19,7 +19,7 @@ __meta__ = {
 
 [node name="container_command" type="HBoxContainer" parent="."]
 margin_right = 1280.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
 theme = ExtResource( 1 )
 __meta__ = {
@@ -28,7 +28,7 @@ __meta__ = {
 
 [node name="container_command" type="PanelContainer" parent="container_command"]
 margin_right = 1240.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
 custom_styles/panel = ExtResource( 3 )
 
@@ -36,16 +36,16 @@ custom_styles/panel = ExtResource( 3 )
 margin_left = 6.0
 margin_top = 4.0
 margin_right = 1234.0
-margin_bottom = 28.0
+margin_bottom = 30.0
 size_flags_horizontal = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="button_collapse" type="TextureButton" parent="container_command/container_command/_"]
-margin_top = 4.0
+margin_top = 5.0
 margin_right = 16.0
-margin_bottom = 20.0
+margin_bottom = 21.0
 rect_pivot_offset = Vector2( 8, 8 )
 size_flags_horizontal = 0
 size_flags_vertical = 4
@@ -58,24 +58,23 @@ texture_focused = ExtResource( 4 )
 [node name="check_enabled" type="CheckBox" parent="container_command/container_command/_"]
 margin_left = 20.0
 margin_right = 44.0
-margin_bottom = 24.0
+margin_bottom = 26.0
 pressed = true
 
 [node name="label_command" type="Label" parent="container_command/container_command/_"]
 margin_left = 48.0
-margin_top = 1.0
 margin_right = 198.0
-margin_bottom = 23.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 150, 0 )
 text = "!test"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="option_type" type="OptionButton" parent="container_command/container_command/_"]
+[node name="option_execution" type="OptionButton" parent="container_command/container_command/_"]
 margin_left = 202.0
 margin_right = 302.0
-margin_bottom = 24.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 100, 0 )
 text = "Sequence"
 align = 1
@@ -84,15 +83,14 @@ selected = 0
 
 [node name="input_arguments" type="SpinBox" parent="container_command/container_command/_"]
 margin_left = 306.0
-margin_right = 382.0
-margin_bottom = 24.0
+margin_right = 430.0
+margin_bottom = 26.0
 align = 1
 
 [node name="option_access" type="OptionButton" parent="container_command/container_command/_"]
-margin_left = 386.0
-margin_top = 1.0
-margin_right = 486.0
-margin_bottom = 23.0
+margin_left = 434.0
+margin_right = 534.0
+margin_bottom = 26.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_vertical = 4
 text = "All"
@@ -101,28 +99,28 @@ items = [ "All", null, false, 0, null, "VIP", null, false, 1, null, "Moderator",
 selected = 0
 
 [node name="_" type="VSeparator" parent="container_command/container_command/_"]
-margin_left = 490.0
-margin_right = 1184.0
-margin_bottom = 24.0
+margin_left = 538.0
+margin_right = 1180.0
+margin_bottom = 26.0
 size_flags_horizontal = 3
 custom_styles/separator = SubResource( 1 )
 
 [node name="button_tags" type="Button" parent="container_command/container_command/_"]
-margin_left = 1188.0
+margin_left = 1184.0
 margin_right = 1228.0
-margin_bottom = 24.0
+margin_bottom = 26.0
 text = "Tags"
 
 [node name="container_actions" type="HBoxContainer" parent="container_command"]
 margin_left = 1244.0
 margin_right = 1280.0
-margin_bottom = 32.0
+margin_bottom = 34.0
 rect_min_size = Vector2( 36, 0 )
 
 [node name="button_add" type="TextureButton" parent="container_command/container_actions"]
-margin_top = 8.0
+margin_top = 9.0
 margin_right = 16.0
-margin_bottom = 24.0
+margin_bottom = 25.0
 size_flags_vertical = 4
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 5 )
@@ -132,9 +130,9 @@ texture_focused = ExtResource( 5 )
 
 [node name="button_delete" type="TextureButton" parent="container_command/container_actions"]
 margin_left = 20.0
-margin_top = 8.0
+margin_top = 9.0
 margin_right = 36.0
-margin_bottom = 24.0
+margin_bottom = 25.0
 size_flags_vertical = 4
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 2 )
@@ -143,6 +141,6 @@ texture_disabled = ExtResource( 2 )
 texture_focused = ExtResource( 2 )
 
 [node name="container_command_actions" type="VBoxContainer" parent="."]
-margin_top = 36.0
+margin_top = 38.0
 margin_right = 1280.0
-margin_bottom = 36.0
+margin_bottom = 38.0

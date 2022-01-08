@@ -30,6 +30,26 @@ _global_script_classes=[ {
 "path": "res://addons/gift/util/cmd_info.gd"
 }, {
 "base": "Reference",
+"class": "DataApplication",
+"language": "GDScript",
+"path": "res://source/data/data_application.gd"
+}, {
+"base": "Reference",
+"class": "DataCommand",
+"language": "GDScript",
+"path": "res://source/data/data_command.gd"
+}, {
+"base": "Reference",
+"class": "DataCommandAction",
+"language": "GDScript",
+"path": "res://source/data/data_command_action.gd"
+}, {
+"base": "Reference",
+"class": "DataCommandTab",
+"language": "GDScript",
+"path": "res://source/data/data_command_tab.gd"
+}, {
+"base": "Reference",
 "class": "FileManager",
 "language": "GDScript",
 "path": "res://source/helpers/file_manager.gd"
@@ -63,19 +83,29 @@ _global_script_classes=[ {
 "class": "SenderData",
 "language": "GDScript",
 "path": "res://addons/gift/util/sender_data.gd"
+}, {
+"base": "Tabs",
+"class": "TabCommand",
+"language": "GDScript",
+"path": "res://source/tabs/tab_command.gd"
 } ]
 _global_script_class_icons={
 "Command": "",
 "CommandAction": "",
 "CommandData": "",
 "CommandInfo": "",
+"DataApplication": "",
+"DataCommand": "",
+"DataCommandAction": "",
+"DataCommandTab": "",
 "FileManager": "",
 "Gift": "",
 "GodotReset": "",
 "HTTPServer": "",
 "ImageCache": "",
 "Logger": "",
-"SenderData": ""
+"SenderData": "",
+"TabCommand": ""
 }
 
 [application]
@@ -94,7 +124,6 @@ SettingsManager="*res://source/autoloads/settings_manager.gd"
 window/size/width=1280
 window/size/height=720
 window/size/resizable=false
-window/size/borderless=true
 window/size/test_width=1280
 window/size/test_height=720
 

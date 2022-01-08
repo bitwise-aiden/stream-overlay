@@ -33,7 +33,7 @@ align = 1
 items = [ "Static", null, false, 0, null, "Code", null, false, 1, null, "Signal", null, false, 2, null ]
 selected = 0
 
-[node name="input_response" type="LineEdit" parent="container_action"]
+[node name="input_static" type="LineEdit" parent="container_action"]
 margin_left = 104.0
 margin_right = 1260.0
 margin_bottom = 26.0

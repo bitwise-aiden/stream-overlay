@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://assets/themes/panel_light_theme.tres" type="StyleBox" id=1]
 [ext_resource path="res://source/components/status.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=3]
 [ext_resource path="res://source/tabs/tab_command.tscn" type="PackedScene" id=4]
+[ext_resource path="res://source/main.gd" type="Script" id=5]
 
 [sub_resource type="InputEventKey" id=1]
 alt = true
@@ -28,6 +29,7 @@ margin_top = 5.0
 margin_right = -5.0
 margin_bottom = -5.0
 theme = ExtResource( 3 )
+script = ExtResource( 5 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
