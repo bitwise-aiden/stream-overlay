@@ -1,4 +1,4 @@
-class_name DataCommandAction
+class_name DataCommandAction extends Data
 
 
 # Public variables

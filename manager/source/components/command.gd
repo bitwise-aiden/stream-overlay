@@ -40,13 +40,13 @@ func set_data(data: DataCommand) -> void:
 	__data = data
 
 	# Nuts - c_onvulse
-	__check_enabled.toggle_mode = data.enabled
-	__input_arguments.value = data.argument_count
-	__label_command.text = data.text
+	DataLinker.link(__check_enabled, data, "enabled")
+	DataLinker.link(__input_arguments, data, "argument_count")
+	DataLinker.link(__label_command, data, "text")
 	# I must go take a sh*t, i'll be back - c_onvulse
-	__option_access.selected = data.access_type
+	DataLinker.link(__option_access, data, "access_type")
 	# all this censorship is just like that book i never read, 1975 by jordan orwelp. f*ck! - TheYagich
-	__option_execution.selected = data.execution_type
+	DataLinker.link(__option_execution, data, "execution_type")
 
 	# TODO: Add tags
 

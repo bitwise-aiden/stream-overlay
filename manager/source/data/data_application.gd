@@ -1,4 +1,4 @@
-class_name DataApplication
+class_name DataApplication extends Data
 
 
 # Public variables

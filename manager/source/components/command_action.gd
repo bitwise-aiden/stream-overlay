@@ -38,11 +38,10 @@ func _ready() -> void:
 func set_data(data: DataCommandAction) -> void:
 	__data = data
 
-	__input_code.text = data.action_code
-
-	__input_signal.text = data.action_signal
-	__input_static.text = data.action_static
-	__option_type.selected = data.type
+	DataLinker.link(__input_code, data, "action_code")
+	DataLinker.link(__input_signal, data, "action_signal")
+	DataLinker.link(__input_static, data, "action_static")
+	DataLinker.link(__option_type, data, "type")
 
 
 # Private methods

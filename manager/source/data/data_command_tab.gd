@@ -1,4 +1,4 @@
-class_name DataCommandTab
+class_name DataCommandTab extends Data
 
 
 # Public variables

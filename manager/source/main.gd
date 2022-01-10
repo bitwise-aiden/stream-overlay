@@ -11,8 +11,10 @@ var __data: DataApplication = DataApplication.new()
 # Lifecycle methods
 
 func _ready() -> void:
-	var result = FileManager.load_file("test_settings")
-	__data = str2var(result)
+
+	if FileManager.file_exists("test_settings"):
+		var result = FileManager.load_file("test_settings")
+		__data = str2var(result)
 
 	__tab_command.set_data(__data.command)
 
