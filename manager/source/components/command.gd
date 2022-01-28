@@ -65,6 +65,8 @@ func __action_add(action: DataCommandAction, loading: bool = false) -> void:
 	if !loading:
 		__data.actions.append(action)
 
+	__button_delete.visible = false
+
 	yield(get_tree(), "idle_frame")
 
 	instance.set_data(action)
@@ -89,8 +91,6 @@ func __button_add_pressed() -> void:
 	# TODO: Command buffer
 
 	__action_add(DataCommandAction.new())
-
-	__button_delete.visible = false
 
 
 func __button_collapse_pressed() -> void:
