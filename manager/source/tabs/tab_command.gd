@@ -14,7 +14,7 @@ onready var __container_commands: VBoxContainer = $_/container_commands/_/_
 onready var __input_command: LineEdit = $_/container_add/input_command
 onready var __label_error: Label = $_/container_add/label_error
 
-var __data: DataCommandTab = null
+var __data: DataTabCommand = null
 
 
 # Lifecycle methods
@@ -26,7 +26,7 @@ func _ready() -> void:
 
 # Public methods
 
-func set_data(data: DataCommandTab) -> void:
+func set_data(data: DataTabCommand) -> void:
 	__data = data
 
 	for command in data.commands:
