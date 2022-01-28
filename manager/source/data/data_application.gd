@@ -3,4 +3,10 @@ class_name DataApplication extends Data
 
 # Public variables
 
-var command: DataCommandTab = DataCommandTab.new()
+var profile: String = "default"
+
+
+# Public methods
+
+func copy(other: Data) -> void:
+	other.profile = profile
