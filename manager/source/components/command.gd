@@ -50,6 +50,9 @@ func set_data(data: DataCommand) -> void:
 
 	# TODO: Add tags
 
+	# TODO: Update to use DataLinker
+	__container_command_actions.visible = !data.collapsed
+
 	for action in data.actions:
 		__action_add(action, true)
 
@@ -104,6 +107,10 @@ func __button_collapse_pressed() -> void:
 		rotation = -90.0
 
 	__button_collapse.rect_rotation = rotation
+
+	# TODO: Update this to use DataLinker
+	__data.collapsed = !__container_command_actions.visible
+	Event.emit_signal("data_changed")
 
 
 func __button_delete_pressed() -> void:
