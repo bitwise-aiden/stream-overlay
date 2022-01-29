@@ -2,11 +2,6 @@
 extends Node
 
 
-# Signals
-
-signal data_changed(data, field)
-
-
 # Public methods
 
 func link(control: Control, data: Data, field: String) -> void:
@@ -29,6 +24,8 @@ func link(control: Control, data: Data, field: String) -> void:
 func __handle_change(control: Control, data: Data, from: String, to: String) -> void:
 	var value = control.get(from)
 	data.set(to, value)
+
+	Event.emit_signal("data_changed")
 
 
 func __handle_change_param(_param, control: Control, data: Data, from: String, to: String) -> void:

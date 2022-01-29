@@ -43,6 +43,7 @@ func __command_add(command: DataCommand, loading: bool = false) -> void:
 
 	if !loading:
 		__data.commands.append(command)
+		Event.emit_signal("data_changed")
 
 	yield(get_tree(), "idle_frame") # TODO: Test if this is needed
 
@@ -57,6 +58,8 @@ func __command_remove(command: Command) -> void:
 	var index: int = __data.commands.find(command.__data)
 	if index != -1:
 		__data.commands.remove(index)
+
+	Event.emit_signal("data_changed")
 
 	command.queue_free()
 

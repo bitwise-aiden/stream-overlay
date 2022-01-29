@@ -64,6 +64,7 @@ func __action_add(action: DataCommandAction, loading: bool = false) -> void:
 
 	if !loading:
 		__data.actions.append(action)
+		Event.emit_signal("data_changed")
 
 	__button_delete.visible = false
 
@@ -80,6 +81,8 @@ func __action_remove(action: CommandAction) -> void:
 	var index: int = __data.actions.find(action.__data)
 	if index != -1:
 		__data.actions.remove(index)
+
+	Event.emit_signal("data_changed")
 
 	if __container_command_actions.get_child_count() == 0:
 		__button_delete.visible = true
