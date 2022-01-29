@@ -1,0 +1,16 @@
+- Add global commands:
+    - today
+    - uptime
+- Figure out what to do with: 
+    - current
+    - jam
+- Add user_responses: 
+	"b33bytes": "Buzzzzsh \u1F41D",
+	"wan_hack": "NoU hydrate",
+	"liioni": "_Ominous music starts playing_",
+	"cavedens": "Looking pixel perfect!",
+	"velopman": "GET BACK TO THE STREAM!",
+	"divi02": "Okay, I'll sit up straight",
+	"theyagich": "Why aren't you asleep?",
+	"lumikkode": "Oh my! It is Lumi <3 <3"
+- Add passthrough to "chat_message" on recieve
