@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://assets/themes/panel_light_theme.tres" type="StyleBox" id=1]
 [ext_resource path="res://source/components/status.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/themes/main_theme.tres" type="Theme" id=3]
 [ext_resource path="res://source/tabs/tab_command.tscn" type="PackedScene" id=4]
 [ext_resource path="res://source/main.gd" type="Script" id=5]
+[ext_resource path="res://source/components/dialog_profile_name.gd" type="Script" id=6]
+[ext_resource path="res://source/components/dialog_file_path.gd" type="Script" id=7]
 
 [sub_resource type="InputEventKey" id=1]
 alt = true
@@ -57,7 +59,7 @@ margin_bottom = 26.0
 custom_constants/hseparation = 2
 shortcut = SubResource( 4 )
 text = "Profile"
-items = [ "New", null, 0, false, false, 0, 0, null, "", false, "Duplicate", null, 0, false, false, 1, 0, null, "", false, "Rename", null, 0, false, false, 2, 0, null, "", false, "Remove", null, 0, false, false, 3, 0, null, "", false, "Import", null, 0, false, false, 4, 0, null, "", false, "Export", null, 0, false, false, 5, 0, null, "", false, "", null, 0, false, false, 6, 0, null, "", true, "Default", null, 0, false, false, 7, 0, null, "", false ]
+items = [ "New", null, 0, false, false, 0, 0, null, "", false, "Duplicate", null, 0, false, false, 1, 0, null, "", false, "Rename", null, 0, false, false, 2, 0, null, "", false, "Remove", null, 0, false, false, 3, 0, null, "", false, "Import", null, 0, false, false, 4, 0, null, "", false, "Export", null, 0, false, false, 5, 0, null, "", false, "", null, 0, false, false, -1, 0, null, "", true, "Default", null, 0, false, false, 7, 0, null, "", false ]
 
 [node name="tabs_content" type="TabContainer" parent="."]
 margin_top = 30.0
@@ -72,6 +74,40 @@ margin_left = 5.0
 margin_top = 33.0
 margin_right = -5.0
 margin_bottom = -5.0
+
+[node name="dialog_profile_name" type="ConfirmationDialog" parent="tabs_content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1070.0
+margin_bottom = -564.0
+popup_exclusive = true
+window_title = "Profile name..."
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input_name" type="LineEdit" parent="tabs_content/dialog_profile_name"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -92.0
+margin_top = 8.0
+margin_right = 92.0
+margin_bottom = 34.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="dialog_file_path" type="FileDialog" parent="tabs_content"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -630.0
+margin_bottom = -280.0
+rect_min_size = Vector2( 640, 360 )
+popup_exclusive = true
+script = ExtResource( 7 )
 
 [node name="panel_footer" type="PanelContainer" parent="."]
 margin_top = 674.0
