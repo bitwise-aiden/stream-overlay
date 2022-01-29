@@ -3,10 +3,38 @@ class_name FileManager
 
 # Public methods
 
+static func delete_file(path: String) -> void:
+	var directory: Directory = Directory.new()
+	var error = directory.remove("user://%s" % path)
+	print(error)
+
+
 static func file_exists(path: String) -> bool:
 	var file: File = File.new()
 
 	return file.file_exists("user://%s" % path)
+
+
+static func files_in_directory(path: String) -> Array:
+	var directory: Directory = Directory.new()
+
+	if !directory.dir_exists("user://%s" %path):
+		directory.make_dir("user://%s" %path)
+		return []
+
+	directory.open("user://%s" % path)
+	directory.list_dir_begin(true, false)
+
+	var files: Array = []
+
+	var file: String = directory.get_next()
+	while file != "":
+		if directory.file_exists(file):
+			files.append(file)
+
+		file = directory.get_next()
+
+	return files
 
 
 static func load_file(path: String) -> String:
