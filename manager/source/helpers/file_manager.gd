@@ -3,26 +3,28 @@ class_name FileManager
 
 # Public methods
 
-static func delete_file(path: String) -> void:
+static func delete_file(path: String, relative: bool = true) -> void:
 	var directory: Directory = Directory.new()
-	var error = directory.remove("user://%s" % path)
+	var error = directory.remove(__qualify_path(path, relative))
 	print(error)
 
 
-static func file_exists(path: String) -> bool:
+static func file_exists(path: String, relative: bool = true) -> bool:
 	var file: File = File.new()
 
-	return file.file_exists("user://%s" % path)
+	return file.file_exists(__qualify_path(path, relative))
 
 
-static func files_in_directory(path: String) -> Array:
+static func files_in_directory(path: String, relative: bool = true) -> Array:
 	var directory: Directory = Directory.new()
 
-	if !directory.dir_exists("user://%s" %path):
-		directory.make_dir("user://%s" %path)
+	var qualified_path: String = __qualify_path(path, relative)
+
+	if !directory.dir_exists(qualified_path):
+		directory.make_dir(qualified_path)
 		return []
 
-	directory.open("user://%s" % path)
+	directory.open(qualified_path)
 	directory.list_dir_begin(true, false)
 
 	var files: Array = []
@@ -37,27 +39,36 @@ static func files_in_directory(path: String) -> Array:
 	return files
 
 
-static func load_file(path: String) -> String:
+static func load_file(path: String, relative: bool = true) -> String:
 	var file: File = File.new()
 
-	file.open("user://%s" % path, File.READ)
+	file.open(__qualify_path(path, relative), File.READ)
 	var content: String = file.get_as_text()
 	file.close()
 
 	return content
 
 
-static func load_json(path: String): # -> Variant
-	return JSON.parse(load_file(path)).result
+static func load_json(path: String, relative: bool = true): # -> Variant
+	return JSON.parse(load_file(path, relative)).result
 
 
-static func save_file(path: String, content: String) -> void:
+static func save_file(path: String, content: String, relative: bool = true) -> void:
 	var file: File = File.new()
 
-	file.open("user://%s" % path, File.WRITE)
+	file.open(__qualify_path(path, relative), File.WRITE)
 	file.store_string(content)
 	file.close()
 
 
-static func save_json(path: String, content) -> void:
-	save_file(path, JSON.print(content))
+static func save_json(path: String, content, relative: bool = true) -> void:
+	save_file(path, JSON.print(content), relative)
+
+
+# Private methods
+
+static func __qualify_path(path: String, relative: bool) -> String:
+	if relative:
+		return "user://%s" % path
+	else:
+		return path
