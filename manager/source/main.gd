@@ -82,11 +82,12 @@ func __button_profile_pressed(id: int) -> void:
 
 			match id:
 				4:
-					var json: Dictionary = FileManager.load_json(file_path)
-					Data.from_json(json)
+					var json: Dictionary = FileManager.load_json(file_path, false)
+					load_profile = Data.from_json(json)
+					ProfileManager.save_profile(load_profile)
 				5:
 					var json: Dictionary = __data_profile.json()
-					FileManager.save_json(file_path, json)
+					FileManager.save_json(file_path, json, false)
 		6:
 			pass # ignore
 		7:
