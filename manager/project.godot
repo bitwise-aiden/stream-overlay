@@ -9,6 +9,11 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "CodeRunner",
+"language": "GDScript",
+"path": "res://source/helpers/code_runner.gd"
+}, {
 "base": "VBoxContainer",
 "class": "Command",
 "language": "GDScript",
@@ -115,6 +120,7 @@ _global_script_classes=[ {
 "path": "res://source/tabs/tab_command.gd"
 } ]
 _global_script_class_icons={
+"CodeRunner": "",
 "Command": "",
 "CommandAction": "",
 "CommandData": "",
@@ -148,6 +154,7 @@ config/icon="res://icon.png"
 
 Event="*res://source/autoloads/event.gd"
 DataLinker="*res://source/autoloads/data_linker.gd"
+ChatBot="*res://source/chat_bot/chat_bot.gd"
 
 [display]
 
@@ -159,7 +166,11 @@ window/size/test_height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray(  )
+enabled=PoolStringArray( "res://addons/gift/plugin.cfg", "res://addons/godot_reset/plugin.cfg" )
+
+[gui]
+
+theme/custom="res://assets/themes/main_theme.tres"
 
 [input]
 

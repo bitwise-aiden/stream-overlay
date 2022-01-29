@@ -179,6 +179,7 @@ func __check_code() -> void:
 	var thread: Thread = Thread.new()
 	thread.start(self, "__reload_script", script)
 
+	# TODO: Do something with this error
 	var error: int = thread.wait_to_finish()
 
 

@@ -1,4 +1,4 @@
-extends VBoxContainer
+extends Control
 
 
 # Private constants
@@ -6,14 +6,13 @@ extends VBoxContainer
 const __PATH_SETTING: String = "setting"
 
 
-
 # Private variables
 
-onready var __dialog_file_path: FileDialog = $tabs_content/dialog_file_path
-onready var __dialog_profile_name: ConfirmationDialog = $tabs_content/dialog_profile_name
-onready var __menu_file: PopupMenu = $container_menu/file.get_popup()
-onready var __menu_profile: PopupMenu = $container_menu/profile.get_popup()
-onready var __tab_command: TabCommand = $tabs_content/Command
+onready var __dialog_file_path: FileDialog = $dialog_file_path
+onready var __dialog_profile_name: ConfirmationDialog = $dialog_profile_name
+onready var __menu_file: PopupMenu = $container_content/container_menu/file.get_popup()
+onready var __menu_profile: PopupMenu = $container_content/container_menu/profile.get_popup()
+onready var __tab_command: TabCommand = $container_content/tabs_content/Command
 
 var __data_application: DataApplication
 var __data_profile: DataProfile
@@ -35,11 +34,12 @@ func _ready() -> void:
 
 	__tab_command.set_data(__data_profile.tab_command)
 
-	# TODO: Make this less hacky
-	Event.disconnect("data_changed", ProfileManager, "save_profile")
-	Event.connect("data_changed", ProfileManager, "save_profile", [__data_profile])
+	ChatBot.set_command_data(__data_profile.tab_command.commands)
+
+	Event.connect("data_changed", self, "__data_changed")
 
 	__menu_profile.connect("id_pressed", self, "__button_profile_pressed")
+
 
 
 func _exit_tree() -> void:
@@ -99,6 +99,12 @@ func __button_profile_pressed(id: int) -> void:
 	__data_application.profile = load_profile.name
 
 	get_tree().reload_current_scene()
+
+
+func __data_changed() -> void:
+	ProfileManager.save_profile(__data_profile)
+
+	ChatBot.set_command_data(__data_profile.tab_command.commands)
 
 
 func __load_application() -> DataApplication:
