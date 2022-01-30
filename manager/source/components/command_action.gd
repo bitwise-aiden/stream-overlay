@@ -3,6 +3,7 @@ class_name CommandAction extends Control
 
 # Signals
 
+# warning-ignore:unused-signal
 signal deleted()
 
 

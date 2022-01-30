@@ -50,7 +50,11 @@ static func load_file(path: String, relative: bool = true) -> String:
 
 
 static func load_json(path: String, relative: bool = true): # -> Variant
-	return JSON.parse(load_file(path, relative)).result
+	var result: JSONParseResult = JSON.parse(load_file(path, relative))
+	if result.error:
+		return null
+	else:
+		return result.get_result()
 
 
 static func save_file(path: String, content: String, relative: bool = true) -> void:

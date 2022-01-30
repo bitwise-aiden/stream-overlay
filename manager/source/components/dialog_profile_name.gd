@@ -20,6 +20,7 @@ func get_profile_name() -> String:
 
 	yield(self, "popup_hide")
 
+	# warning-ignore:function-may-yield
 	var wait: GDScriptFunctionState = __wait_for_confirmed()
 
 	yield(get_tree(), "idle_frame")

@@ -8,10 +8,10 @@ const __PATH_SETTING: String = "setting"
 
 # Private variables
 
-onready var __dialog_file_path: FileDialog = $dialog_file_path
-onready var __dialog_profile_name: ConfirmationDialog = $dialog_profile_name
-onready var __menu_file: PopupMenu = $container_content/container_menu/file.get_popup()
-onready var __menu_profile: PopupMenu = $container_content/container_menu/profile.get_popup()
+onready var __dialog_file_path: DialogFilePath = $dialog_file_path
+onready var __dialog_profile_name: DialogProfileName = $dialog_profile_name
+onready var __menu_file: PopupMenu = ($container_content/container_menu/file as MenuButton).get_popup()
+onready var __menu_profile: PopupMenu = ($container_content/container_menu/profile as MenuButton).get_popup()
 onready var __tab_command: TabCommand = $container_content/tabs_content/Command
 
 var __data_application: DataApplication

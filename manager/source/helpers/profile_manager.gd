@@ -22,8 +22,7 @@ static func delete_profile(profile: DataProfile) -> void:
 
 
 static func duplicate_profile(name: String, profile: DataProfile) -> DataProfile:
-	var new_profile: DataProfile = DataProfile.new()
-	new_profile.copy(profile)
+	var new_profile = profile.copy()
 	new_profile.name = name
 
 	save_profile(new_profile)

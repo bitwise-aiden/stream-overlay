@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
+"class": "Action",
+"language": "GDScript",
+"path": "res://source/helpers/action_buffer/action.gd"
+}, {
+"base": "Reference",
 "class": "CodeRunner",
 "language": "GDScript",
 "path": "res://source/helpers/code_runner.gd"
@@ -79,22 +84,17 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://source/helpers/file_manager.gd"
 }, {
-"base": "Reference",
+"base": "Node",
 "class": "Gift",
 "language": "GDScript",
 "path": "res://addons/gift/gift_node.gd"
-}, {
-"base": "EditorPlugin",
-"class": "GodotReset",
-"language": "GDScript",
-"path": "res://addons/godot_reset/godot_reset.gd"
 }, {
 "base": "TCP_Server",
 "class": "HTTPServer",
 "language": "GDScript",
 "path": "res://addons/http_server/http_server.gd"
 }, {
-"base": "Node",
+"base": "Resource",
 "class": "ImageCache",
 "language": "GDScript",
 "path": "res://addons/gift/util/image_cache.gd"
@@ -120,6 +120,7 @@ _global_script_classes=[ {
 "path": "res://source/tabs/tab_command.gd"
 } ]
 _global_script_class_icons={
+"Action": "",
 "CodeRunner": "",
 "Command": "",
 "CommandAction": "",
@@ -135,7 +136,6 @@ _global_script_class_icons={
 "DialogProfileName": "",
 "FileManager": "",
 "Gift": "",
-"GodotReset": "",
 "HTTPServer": "",
 "ImageCache": "",
 "Logger": "",
@@ -155,6 +155,15 @@ config/icon="res://icon.png"
 Event="*res://source/autoloads/event.gd"
 DataLinker="*res://source/autoloads/data_linker.gd"
 ChatBot="*res://source/chat_bot/chat_bot.gd"
+ActionBuffer="*res://source/helpers/action_buffer/action_buffer.gd"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
+gdscript/warnings/unsafe_property_access=true
+gdscript/warnings/unsafe_method_access=true
+gdscript/warnings/unsafe_cast=true
+gdscript/warnings/unsafe_call_argument=true
 
 [display]
 
@@ -166,7 +175,7 @@ window/size/test_height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/gift/plugin.cfg", "res://addons/godot_reset/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/gift/plugin.cfg" )
 
 [gui]
 
@@ -184,6 +193,16 @@ ui_left={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777231,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":0,"button_index":14,"pressure":0.0,"pressed":false,"script":null)
+ ]
+}
+redo={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":true,"control":false,"meta":true,"command":true,"pressed":false,"scancode":0,"physical_scancode":90,"unicode":0,"echo":false,"script":null)
+ ]
+}
+undo={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":true,"command":true,"pressed":false,"scancode":0,"physical_scancode":90,"unicode":0,"echo":false,"script":null)
  ]
 }
 

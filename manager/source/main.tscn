@@ -129,10 +129,8 @@ text = "plugin"
 [node name="dialog_profile_name" type="ConfirmationDialog" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 5.0
-margin_top = 35.0
-margin_right = -1065.0
-margin_bottom = -529.0
+margin_right = -1080.0
+margin_bottom = -644.0
 popup_exclusive = true
 window_title = "Profile name..."
 script = ExtResource( 6 )
@@ -143,10 +141,10 @@ __meta__ = {
 [node name="input_name" type="LineEdit" parent="dialog_profile_name"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -97.0
+margin_left = -92.0
 margin_top = 8.0
-margin_right = 97.0
-margin_bottom = 114.0
+margin_right = 92.0
+margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 0
 __meta__ = {

@@ -15,7 +15,7 @@ var __code_runner: CodeRunner = CodeRunner.new(__FUNCTION_SIGNATURE)
 
 func _process(delta: float) -> void:
 	if __twitch:
-		__twitch.process(delta)
+		__twitch._process(delta)
 
 
 # Public method
@@ -46,7 +46,7 @@ func set_command_data(data: Array) -> void:
 
 # Private methods
 
-func __chat_message(sender: SenderData, message: String, channel: String) -> void:
+func __chat_message(sender: SenderData, message: String, _channel: String) -> void:
 	print(sender.tags)
 
 	# TODO: Update case for when someone sends a message
@@ -74,6 +74,7 @@ func __handle_action(action_data: DataCommandAction, user: String, params: Array
 			if !code:
 				return
 
+			# warning-ignore:unsafe-method-access
 			code.handle(__twitch, user, params)
 
 
