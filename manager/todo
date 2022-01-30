@@ -14,3 +14,77 @@
 	"theyagich": "Why aren't you asleep?",
 	"lumikkode": "Oh my! It is Lumi <3 <3"
 - Add passthrough to "chat_message" on recieve
+
+
+menues: 
+	- file
+	- profile
+
+tabs: 
+	- stream
+		- default
+			- today
+				- command or periodic
+			- title
+			- go live notification
+			- category
+			- audience (if avaiable)
+			- tags
+		- projects 
+			- today
+				- command or periodic
+			- title
+				- can be used on subsequent streams, e.g #1..#n
+				- subtitle
+				- e.g. "<title> #n - <subtitle>"
+			- go live notification
+			- category
+			- audience (if avaiable)
+			- tags
+		- stream language
+		- save button
+		- start button
+		- logs 
+	- messages (?)
+	- events
+	- points
+	- commands
+		- add command
+			- validate command doesn't already exist
+			- update command to start with `!`
+			- restrict `!today`, `!command`
+		- set command
+			- enabled
+			- access
+			- argument count (?)
+			- execution type
+				- sequence
+				- random
+			- tags
+		- add action
+			- type
+				- static
+				- code
+				- signal
+			- code/text
+		- rearrange action
+	- settings
+		- streamer name 
+		- broadcaster id (maybe?)
+		- chat bot enable
+			- !command helper enable
+			- access token
+		- points
+			- client id
+			- client secret
+
+features: 
+	- command buffer
+	- websocket for other apps to connect
+		- name self 
+		- subscribe to events, e.g:
+			- chat_message
+			- command_signal
+			- events.points.*
+			- events.follow
+			- events.*
