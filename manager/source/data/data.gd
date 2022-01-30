@@ -3,8 +3,9 @@ class_name Data
 
 # Public methods
 
-func copy(other: Data) -> void:
-	pass
+func copy() -> Data:
+	var data = json()
+	return from_json(data)
 
 
 func json() -> Dictionary:
