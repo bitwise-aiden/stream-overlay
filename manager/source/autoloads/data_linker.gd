@@ -22,10 +22,15 @@ func link(control: Control, data: Data, field: String) -> void:
 # Private methods
 
 func __handle_change(control: Control, data: Data, from: String, to: String) -> void:
-	var value = control.get(from)
-	data.set(to, value)
+	var value_control = control.get(from)
+	var value_data = data.get(to)
 
-	Event.emit_signal("data_changed")
+	ActionBuffer.add(
+		funcref(self, "__update"),
+		[control, data, from, to, value_control],
+		funcref(self, "__update"),
+		[control, data, from, to, value_data]
+	)
 
 
 func __handle_change_param(_param, control: Control, data: Data, from: String, to: String) -> void:
@@ -41,3 +46,11 @@ func __link(control: Control, data: Data, from: String, to: String, event: Strin
 	else:
 		control.emit_signal(event)
 		control.connect(event, self, "__handle_change", [control, data, from, to])
+
+
+func __update(control: Control, data: Data, from: String, to: String, value) -> void:
+	control.set(from, value)
+	data.set(to, value)
+
+	Event.emit_signal("data_changed")
+
