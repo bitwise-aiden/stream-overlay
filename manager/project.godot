@@ -10,11 +10,6 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Reference",
-"class": "Action",
-"language": "GDScript",
-"path": "res://source/helpers/action_buffer/action.gd"
-}, {
-"base": "Reference",
 "class": "CodeRunner",
 "language": "GDScript",
 "path": "res://source/helpers/code_runner.gd"
@@ -120,7 +115,6 @@ _global_script_classes=[ {
 "path": "res://source/tabs/tab_command.gd"
 } ]
 _global_script_class_icons={
-"Action": "",
 "CodeRunner": "",
 "Command": "",
 "CommandAction": "",
@@ -155,7 +149,6 @@ config/icon="res://icon.png"
 Event="*res://source/autoloads/event.gd"
 DataLinker="*res://source/autoloads/data_linker.gd"
 ChatBot="*res://source/chat_bot/chat_bot.gd"
-ActionBuffer="*res://source/helpers/action_buffer/action_buffer.gd"
 
 [debug]
 
