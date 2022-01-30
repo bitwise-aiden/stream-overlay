@@ -170,6 +170,9 @@ func _ready():
 # Private methods
 
 func __check_code() -> void:
+	if !text:
+		return
+
 	var raw_code: String = text.replace("\n", "\n\t")
 	var code: String = __BASE_SOURCE_CODE % raw_code
 
