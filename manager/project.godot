@@ -168,7 +168,7 @@ window/size/test_height=720
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/gift/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/http_server/plugin.cfg" )
 
 [gui]
 

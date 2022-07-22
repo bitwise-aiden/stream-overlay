@@ -13,7 +13,6 @@ build/*
 
 
 # Stream plugins ignore
-*/addons/gift/*
 */addons/godot_reset/*
 */addons/ridiculous_coding/*
 */addons/velopbot/*
