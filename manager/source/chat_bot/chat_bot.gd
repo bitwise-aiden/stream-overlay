@@ -13,20 +13,24 @@ var __code_runner: CodeRunner = CodeRunner.new(__FUNCTION_SIGNATURE)
 
 # Lifecycle methods
 
-func _process(delta: float) -> void:
-	if __twitch:
-		__twitch._process(delta)
+#func _process(delta: float) -> void:
+#	if __twitch:
+#		__twitch._process(delta)
 
 
 # Public method
 
-func start() -> bool:
+func start(channel: String = "", token: String = "") -> bool:
 	__twitch = Gift.new()
+	add_child(__twitch)
 
-	var channel = OS.get_environment("VELOPBOT_CHANNEL")
-	var token = OS.get_environment("VELOPBOT_TOKEN")
+	if !channel:
+		channel = OS.get_environment("STREAM_MANAGER_CHANNEL")
+		
+	if !token:
+		token = OS.get_environment("STREAM_MANAGER_TOKEN")
 
-	__twitch.connect("chat_message", self, "__chat_message")
+	__twitch.connect("chat_message", self, "__chat_message", [channel])
 
 	__twitch.connect_to_twitch()
 	yield(__twitch, "twitch_connected")

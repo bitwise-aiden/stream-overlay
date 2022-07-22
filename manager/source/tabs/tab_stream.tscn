@@ -8,24 +8,47 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="container_stream" type="PanelContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
-[node name="button_start" type="Button" parent="container_stream"]
+[node name="container_controls" type="VBoxContainer" parent="container_stream"]
 margin_left = 6.0
 margin_top = 4.0
-margin_right = 47.0
+margin_right = 1274.0
+margin_bottom = 716.0
+
+[node name="label_channel" type="Label" parent="container_stream/container_controls"]
+margin_right = 1268.0
 margin_bottom = 26.0
+text = "Channel (Can be set via `STREAM_MANAGER_CHANNEL` environment variable):"
+
+[node name="edit_channel" type="LineEdit" parent="container_stream/container_controls"]
+margin_top = 30.0
+margin_right = 1268.0
+margin_bottom = 56.0
+placeholder_text = "Channel"
+
+[node name="label_token" type="Label" parent="container_stream/container_controls"]
+margin_top = 60.0
+margin_right = 1268.0
+margin_bottom = 86.0
+text = "Access token (Can be set via STREAM_MANAGER_TOKEN` environment variable):"
+
+[node name="edit_token" type="LineEdit" parent="container_stream/container_controls"]
+margin_top = 90.0
+margin_right = 1268.0
+margin_bottom = 116.0
+secret = true
+placeholder_text = "Access token"
+
+[node name="button_start" type="Button" parent="container_stream/container_controls"]
+margin_top = 120.0
+margin_right = 52.0
+margin_bottom = 146.0
 size_flags_horizontal = 0
 size_flags_vertical = 0
 text = "start"
